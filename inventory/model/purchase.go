@@ -5,12 +5,12 @@ import (
 )
 
 type Purchase struct {
-	Id               uuid.UUID `json:"id"`
-	ReceiptNo        string    `json:"receipt_no"`
-	Date             string    `json:"time"`
-	Sku              string    `json:"sku"`
-	OrderQuantity    int64     `json:"order_qty"`
-	ReceivedQuantity int64     `json:"receive_qty"`
-	Price            float64   `json:"price"`
-	Note             string    `json:"note"`
+	Id               uuid.UUID `json:"id" csv:"-"`
+	ReceiptNo        string    `json:"receipt_no" csv:"Nomer Kwitansi"`
+	Date             string    `json:"time" csv:"Waktu"`
+	Sku              string    `json:"sku" csv:"SKU"`
+	OrderQuantity    int64     `json:"order_qty" csv:"Jumlah Pemesanan"`
+	ReceivedQuantity int64     `json:"receive_qty" csv:"Jumlah Diterima"`
+	Price            float64   `json:"price" csv:"Harga Beli"`
+	Note             string    `json:"note" csv:"Catatan"`
 }

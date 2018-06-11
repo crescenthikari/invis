@@ -25,7 +25,11 @@ func (h *purchaseHandler) ListPurchasesHandler(w http.ResponseWriter, r *http.Re
 		ResponseErr(w, err)
 		return
 	}
-	ResponseOk(w, purchases)
+	if util.HasContentType(r, "text/csv") {
+		WriteCsv(w, "Catatan Barang Masuk", purchases)
+	} else {
+		ResponseOk(w, purchases)
+	}
 }
 
 func (h *purchaseHandler) AddPurchaseHandler(w http.ResponseWriter, r *http.Request) {
