@@ -55,8 +55,6 @@ func main() {
 
 func listenAndServe(srv *http.Server) {
 	if err := srv.ListenAndServe(); err != nil {
-		log.Println(err)
-		// suicide on run error
-		os.Exit(-1)
+		log.Fatalln(err)
 	}
 }
